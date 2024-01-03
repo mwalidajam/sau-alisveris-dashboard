@@ -4,7 +4,7 @@ import RootLayout from "@/components/admin/Layout";
 import { useEffect, useState } from "react";
 import { ProtectedPageProps, ProductProps } from "@/data/props";
 import axios from "axios";
-import { api_url } from "@/data/url";
+import { api_url, public_url } from "@/data/url";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -67,7 +67,7 @@ const Home: NextPage<PropsStatus> & ProtectedPageProps = ({ product }) => {
                   // @ts-ignore
                   product?.image?.path && (
                     <img
-                      src={`${api_url}/storage/${product?.image?.path}`}
+                      src={`${public_url}/storage/${product?.image?.path}`}
                       width={200}
                     />
                   )
