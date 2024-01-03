@@ -126,9 +126,7 @@ const Home: NextPage<PropsStatus> & ProtectedPageProps = ({ product }) => {
                 color="primary"
                 fullWidth
                 disabled={is_submitting}
-                onClick={() => {
-                  handleSubmit();
-                }}
+                onClick={handleSubmit}
               >
                 {is_submitting ? "Yükleniyor..." : "Ekle"}
               </Button>
