@@ -31,6 +31,7 @@ export default async function handler(
       const formData = new FormData();
       formData.append("name", fields.name[0]);
       formData.append("details", fields.details[0]);
+      formData.append("price", fields.price[0]);
       if (files?.image) {
         var oldPath = files?.image[0]?.filepath;
         var newPath = `./public/uploads/${files?.image[0]?.originalFilename}`;

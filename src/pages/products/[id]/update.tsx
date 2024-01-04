@@ -21,6 +21,7 @@ const Home: NextPage<PropsStatus> & ProtectedPageProps = ({ product }) => {
   const router = useRouter();
   const [name, setName] = useState(product?.name);
   const [details, setDetails] = useState(product?.details);
+  const [price, setPrice] = useState(product?.price);
   const [image, setImage] = useState<File | null>(null);
   const [is_submitting, setIsSubmitting] = useState(false);
   const handleSubmit = async () => {
@@ -29,6 +30,7 @@ const Home: NextPage<PropsStatus> & ProtectedPageProps = ({ product }) => {
     formData.append("id", product?.id.toString());
     formData.append("name", name);
     formData.append("details", details);
+    formData.append("price", price.toString());
     formData.append("image", image as Blob);
     const { data } = await axios.post(`/api/products/update`, formData);
     console.log(data);
@@ -98,6 +100,21 @@ const Home: NextPage<PropsStatus> & ProtectedPageProps = ({ product }) => {
                     setDetails(e.target.value);
                   }}
                   multiline
+                />
+              </FormControl>
+            </Grid>
+          </Grid>
+          <Grid container spacing={3} justifyContent={"center"}>
+            <Grid item mt={3} md={6} xs={12}>
+              <FormControl fullWidth>
+                <TextField
+                  id="price"
+                  label="Ürün Fiyatı"
+                  value={price}
+                  onChange={(e) => {
+                    setPrice(parseInt(e.target.value));
+                  }}
+                  type={"number"}
                 />
               </FormControl>
             </Grid>

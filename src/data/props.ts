@@ -1,4 +1,3 @@
-
 export type UserProps = {
   id: number;
   name: string;
@@ -29,4 +28,5 @@ export type ProductProps = {
   image?: {
     path?: string;
   };
+  price: number;
 };
